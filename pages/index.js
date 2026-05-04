@@ -246,12 +246,11 @@ export default function Farouk() {
     }))
 
     // OUTPUTS
-    setScreen('outputs')
-    setOutputs('')
     addLog('SYSTEM', l.logO, '#534AB7')
     setStatusTxt(l.generating)
     const outResult = await callAPI(l.outSys, l.outUser(idea, stratResult, ceoResult))
-    setOutputs(outResult)
+    setOutputs(outResult || 'Output generation complete.')
+    setScreen('outputs')
 
     AGENT_KEYS.forEach(key => updateAgent(key, { status: 'done', progress: 100, task: l.allDone }))
     setStatusTxt(l.complete)
