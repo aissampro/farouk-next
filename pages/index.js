@@ -163,7 +163,7 @@ export default function Farouk() {
   const updateAgent = (key, patch) => setAgents(prev => ({ ...prev, [key]: { ...prev[key], ...patch } }))
 
   const callAPI = async (sys, user) => {
-    const res = await fetch('/api/chat', {
+    const res = await fetch('https://farouk-proxy.aissamsigoul7.workers.dev', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, system: sys, messages: [{ role: 'user', content: user }] })
