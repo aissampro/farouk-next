@@ -166,7 +166,7 @@ export default function Farouk() {
     const res = await fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, system: sys, messages: [{ role: 'user', content: user }] })
+      body: JSON.stringify({ model: 'claude-sonnet-4-5', max_tokens: 1000, system: sys, messages: [{ role: 'user', content: user }] })
     })
     const data = await res.json()
     return data.content?.map(b => b.text || '').join('') || ''
@@ -340,7 +340,7 @@ export default function Farouk() {
                 <div className="card" style={{ marginTop: 7 }}>
                   <textarea rows={3} value={idea} onChange={e => setIdea(e.target.value)} placeholder={l.placeholder} />
                   <div className="foot">
-                    <div className="mt">claude-sonnet-4-20250514 · bilingual EN/FR</div>
+                    <div className="mt">claude-sonnet-4-5 · bilingual EN/FR</div>
                     <button className="btn" onClick={run} disabled={running}>
                       <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M5.5 1L7 4H11L8 6.5L9 10L5.5 8L2 10L3 6.5L0 4H4Z" fill="currentColor"/></svg>
                       {running ? l.runningBtn : l.launchBtn}
